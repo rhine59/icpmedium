@@ -1,7 +1,7 @@
 {
     "name": "IBM Cloud Private Medium Setup Installation",
     "description": "This template will deploy medium instance of IBM Cloud Private",
-    "version": "1.0",
+    "version": "2.0",
     "imageUrl": "",
     "image": "",
     "type": "prebuilt",
@@ -18,7 +18,7 @@
       "template_source": {
         "githubRepoUrl": "",
         "githubAccessToken": "",
-        "relativePathToTemplateFolder": "vmware/terraform",
+        "relativePathToTemplateFolder": "terraform",
         "templateFileName": "main.tf"
       }
     },
@@ -56,4 +56,3 @@
       ]
     }
 }
-
