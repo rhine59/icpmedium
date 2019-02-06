@@ -1,10 +1,10 @@
 {
   "input_datatypes": [
     {
-      "name": "bastionhost",
-      "label": "Bastion Data"
+      "name": "cluster_details",
+      "label": "ICP Cluster Details"
     }
-  ], 
+  ],
   "output_datatypes": [
     {
       "name": "com.ibm.cloud.cloudconnections.ICP",
@@ -26,7 +26,7 @@
         ]
       }
     }
-  ],  
+  ],
     "input_groups": [
       {
         "name": "cloud",
@@ -80,12 +80,12 @@
     ],
   "template_input_params": [
     {
-      "name": "bastion_host",
+      "name": "cluster_details",
       "type": "string",
       "hidden": true,
-      "description": "Bastion host for ssh proxy",
-      "default": "${bastionhost.bastion_host}",
-      "label": "Bastion host",
+      "description": "vCPU count",
+      "default": "${cluster_details.cpu}",
+      "label": "vCPU",
       "secured": false,
       "required": false
     },
@@ -118,7 +118,7 @@
       "label": "Bastion private key",
       "secured": true,
       "required": false
-    },  
+    },
     {
       "name": "bastion_password",
       "type": "string",
@@ -138,7 +138,7 @@
       "label": "Bastion host key",
       "secured": false,
       "required": false
-    },          
+    },
     {
       "name": "boot_hostname_ip",
       "default": {
@@ -373,7 +373,7 @@
 				}
 			],
 			"group_name": "icpmultinode"
-    },    
+    },
     {
       "name": "worker_enable_glusterFS",
       "description": "Enable / Disable the installation of Gluster File System in  IBM Cloud Private Installation",
@@ -456,7 +456,7 @@
       "hidden": false,
       "immutable": false,
       "group_name": "icpmultinode"
-    },    
+    },
     {
       "name": "icp_binary_url",
       "description": "Location of the IBM Cloud Private Binaries used by IBM Cloud Private",
@@ -1111,7 +1111,7 @@
         }
       ],
       "group_name": "vavirtualmachine"
-    },     
+    },
     {
       "name": "va_hostname_ip",
       "default": {
@@ -1424,7 +1424,7 @@
       ],
       "group_name": "nfs_servervirtualmachine"
     },
-    
+
     {
       "name": "nfs_server_hostname_ip",
       "default": {
@@ -1559,7 +1559,7 @@
       "system": false,
       "required": true,
       "immutable": false
-    },    
+    },
     {
       "name": "ibm_cloud_private_admin_url",
       "type": "url",
