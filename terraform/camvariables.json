@@ -1,10 +1,10 @@
 {
   "input_datatypes": [
     {
-      "name": "cluster_details",
-      "label": "ICP Cluster Details"
+      "name": "bastionhost",
+      "label": "Bastion Data"
     }
-  ],
+  ], 
   "output_datatypes": [
     {
       "name": "com.ibm.cloud.cloudconnections.ICP",
@@ -26,7 +26,7 @@
         ]
       }
     }
-  ],
+  ],  
     "input_groups": [
       {
         "name": "cloud",
@@ -80,12 +80,12 @@
     ],
   "template_input_params": [
     {
-      "name": "cluster_details",
+      "name": "bastion_host",
       "type": "string",
       "hidden": true,
-      "description": "vCPU count",
-      "default": "${cluster_details.cpu}",
-      "label": "vCPU",
+      "description": "Bastion host for ssh proxy",
+      "default": "${bastionhost.bastion_host}",
+      "label": "Bastion host",
       "secured": false,
       "required": false
     },
@@ -118,7 +118,7 @@
       "label": "Bastion private key",
       "secured": true,
       "required": false
-    },
+    },  
     {
       "name": "bastion_password",
       "type": "string",
@@ -138,7 +138,7 @@
       "label": "Bastion host key",
       "secured": false,
       "required": false
-    },
+    },          
     {
       "name": "boot_hostname_ip",
       "default": {
@@ -373,7 +373,7 @@
 				}
 			],
 			"group_name": "icpmultinode"
-    },
+    },    
     {
       "name": "worker_enable_glusterFS",
       "description": "Enable / Disable the installation of Gluster File System in  IBM Cloud Private Installation",
@@ -456,7 +456,7 @@
       "hidden": false,
       "immutable": false,
       "group_name": "icpmultinode"
-    },
+    },    
     {
       "name": "icp_binary_url",
       "description": "Location of the IBM Cloud Private Binaries used by IBM Cloud Private",
@@ -475,10 +475,10 @@
       "description": "IBM Cloud Private - Private SSH key for access between boxes (base64 encoded)",
       "default": "",
       "type": "string",
-      "required": true,
-      "secured": false,
+      "required": false,
+      "secured": true,
       "label": "IBM Cloud Private - Private SSH Key",
-      "hidden": true,
+      "hidden": false,
       "immutable": false,
       "group_name": "icpsshkey"
     },
@@ -487,10 +487,10 @@
       "description": "IBM Cloud Private - Public SSH key for access between boxes",
       "default": "",
       "type": "string",
-      "required": true,
+      "required": false,
       "secured": false,
       "label": "IBM Cloud Private - Public SSH Key",
-      "hidden": true,
+      "hidden": false,
       "immutable": false,
       "group_name": "icpsshkey"
     },
@@ -498,9 +498,13 @@
       "name": "icp_version",
       "description": "IBM Cloud Private Version Number",
       "options": [{
+        "value": "3.1.1",
+        "label": "3.1.1",
+        "default": "true"
+        },
+        {
           "value": "3.1.0",
-          "label": "3.1.0",
-          "default": "true"
+          "label": "3.1.0"
         },
         {
           "value": "2.1.0.3",
@@ -1111,7 +1115,7 @@
         }
       ],
       "group_name": "vavirtualmachine"
-    },
+    },     
     {
       "name": "va_hostname_ip",
       "default": {
@@ -1424,7 +1428,7 @@
       ],
       "group_name": "nfs_servervirtualmachine"
     },
-
+    
     {
       "name": "nfs_server_hostname_ip",
       "default": {
@@ -1559,7 +1563,7 @@
       "system": false,
       "required": true,
       "immutable": false
-    },
+    },    
     {
       "name": "ibm_cloud_private_admin_url",
       "type": "url",
